@@ -6,17 +6,77 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>not-util</title>
     <style>
-        body {
-            background-color: black;
-            color: white;
+        * {
+            box-sizing: border-box;
+            text-align: center;
+
             font-family: Arial, Helvetica, sans-serif;
+            color: white;
+        }
+        body {
+            background-color: rgb(25, 26, 27);
+        }
+        .secondary_text {
+            color: rgb(145, 145, 145);
+        }
+        .codeblock {
+            font-size: 11pt;
+
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            white-space: nowrap;
+
+            padding: 16px 0;
+            margin: 0 auto;
+            width: 600px;
+            max-width: 600px;
+            min-width: 600px;
+            height: fit-content;
+            max-height: 50px;
+            min-height: 50px;
+        }
+        #copied {
+            opacity: 0;
+            transition: opacity 0.2s ease;
+            font-weight: bold;
+            font-size: 13pt;
         }
     </style>
 </head>
 <body>
-    <code>
-        
-    </code>
-    <script src="index.js"></script>
+    <br>
+    <p>Based on <a href="https://github.com/not-the/carrot_utilities">https://github.com/not-the/carrot_utilities</a></p><br>
+    <h3>Click to copy:</h3><br>
+
+    <p>JS utilities:</p>
+    <textarea name="js_block" id="js_block" class="codeblock" readonly>&lt;script src="https://not-the.github.io/not-util/not-util.js"&gt;&lt/script&gt;</textarea><br><br>
+
+    <p>CSS utilities:</p>
+    <p class="secondary_text">(No !important so needs to go after other CSS for it to take priority)</p>
+    <textarea name="css_block" id="css_block" class="codeblock" readonly>&lt;link rel="stylesheet" href="https://not-the.github.io/not-util/not-util.css"&gt;</textarea><br><br><br><br>
+
+    <div id="copied">Copied!</div>
+
+
+    <!-- JS -->
+    <script src="not-util.js"></script>
+    <script>
+        const js =  dom('js_block');
+        const css = dom('css_block');
+        const copied = dom('copied');
+        js.addEventListener('click', event => { copy(event); });
+        css.addEventListener('click', event => { copy(event); });
+        function copy(event) {
+            let element = event.srcElement
+            element.focus();
+            element.select();
+            document.execCommand('copy');
+            copied.style.opacity = '1';
+            setTimeout(() => {
+                copied.style.opacity = '0';
+            }, 3000);
+        }
+    </script>
 </body>
 </html>

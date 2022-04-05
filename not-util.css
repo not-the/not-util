@@ -1,0 +1,36 @@
+/* Universal */
+* {box-sizing: border-box;}
+body {
+    margin: 0;
+}
+
+/* Misc */
+.flex { display: flex; }
+.flex_1 {flex: 1;}
+.overflow_hidden {overflow: hidden;}
+.justify_center {justify-content: center;}
+.render_pixelated { image-rendering: pixelated; }
+.vertical_align_middle { vertical-align: middle; }
+
+/* Position */
+.position_absolute {position: absolute;}
+.position_relative {position: relative;}
+
+/* Text */
+.italic {font-style: italic;}
+.weight100 {font-weight: 100;}
+.weight900 {font-weight: 900 !important;}
+.center { text-align: center; }
+.unbold { font-weight: unset; }
+.underline { text-decoration: underline; }
+.hover_underline:hover {text-decoration: underline;}
+
+/* Cursor */
+.pointer, .cursor_pointer {cursor: pointer;}
+.hide_mouse {cursor: none !important;}
+
+/* Visibility */
+.opacity0 { opacity: 0; }
+.opacity1 { opacity: 1; }
+.visible  { visibility: visible; }
+.hidden   { visibility: hidden; }
