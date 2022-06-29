@@ -24,6 +24,15 @@ function $(sel) {return document.querySelector(sel);}
  * @returns Returns all element descendants of node that match selectors.
  */
 function $all(sel) {return document.querySelectorAll(sel);}
+
+/** Shorthand for adding/removing a CSS class to or from an element
+ * @param {node} element HTML element
+ * @param {string} classname CSS class name
+ * @param {boolean} state true = add, false = remove
+ */
+function style(element, classname, state) {
+    state ? element.classList.add(classname) : element.classList.remove(classname);
+}
 //#endregion
 
 
