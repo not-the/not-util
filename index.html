@@ -4,60 +4,71 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>not-util</title>
-    <style>
-        * {
-            box-sizing: border-box;
-            text-align: center;
+    <title>not-util - JS & CSS utilities</title>
+    <link rel="icon" type="image/x-icon" href="https://www.notkal.com/assets/icon.png">
 
-            font-family: Arial, Helvetica, sans-serif;
-            color: white;
-        }
-        body {
-            background-color: rgb(25, 26, 27);
-        }
-        .secondary_text {
-            color: rgb(145, 145, 145);
-        }
-        .codeblock {
-            font-size: 11pt;
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/styles.css">
 
-            background-color: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 16px;
-            white-space: nowrap;
-
-            padding: 16px 0;
-            margin: 0 auto;
-            width: 600px;
-            max-width: 600px;
-            min-width: 600px;
-            height: fit-content;
-            max-height: 50px;
-            min-height: 50px;
-        }
-        #copied {
-            opacity: 0;
-            transition: opacity 0.2s ease;
-            font-weight: bold;
-            font-size: 13pt;
-        }
-    </style>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <br>
-    <p>Based on <a href="https://github.com/not-the/carrot_utilities">https://github.com/not-the/carrot_utilities</a></p><br>
-    <h3>Click to copy:</h3><br>
+    <!-- Header -->
+    <header class="container flex">
+        <h1>code.notkal.com</h1>
+        <div class="buttons flex">
+            <a href="https://github.com/not-the/not-util" rel="noopener roreferrer" data-title="View the source code on Github">
+                <svg enable-background="new 0 0 24 24" height="512" viewBox="0 0 24 24" width="512" xmlns="http://www.w3.org/2000/svg"><path d="m12 .5c-6.63 0-12 5.28-12 11.792 0 5.211 3.438 9.63 8.205 11.188.6.111.82-.254.82-.567 0-.28-.01-1.022-.015-2.005-3.338.711-4.042-1.582-4.042-1.582-.546-1.361-1.335-1.725-1.335-1.725-1.087-.731.084-.716.084-.716 1.205.082 1.838 1.215 1.838 1.215 1.07 1.803 2.809 1.282 3.495.981.108-.763.417-1.282.76-1.577-2.665-.295-5.466-1.309-5.466-5.827 0-1.287.465-2.339 1.235-3.164-.135-.298-.54-1.497.105-3.121 0 0 1.005-.316 3.3 1.209.96-.262 1.98-.392 3-.398 1.02.006 2.04.136 3 .398 2.28-1.525 3.285-1.209 3.285-1.209.645 1.624.24 2.823.12 3.121.765.825 1.23 1.877 1.23 3.164 0 4.53-2.805 5.527-5.475 5.817.42.354.81 1.077.81 2.182 0 1.578-.015 2.846-.015 3.229 0 .309.21.678.825.56 4.801-1.548 8.236-5.97 8.236-11.173 0-6.512-5.373-11.792-12-11.792z" fill="#ffffff"/></svg>
+            </a>
+            <a href="https://www.notkal.com/" data-title="notkal.com">
+                <img src="https://www.notkal.com/assets/icon_96x.png" alt="notkal.com">
+            </a>
+        </div>
+    </header>
+    
+    <div class="main_content container flex">
+        <!-- Main -->
+        <main>
+            <h2>JS utilities:</h2>
+            <section class="item" id="not_util_js">
+                <textarea name="js_block" id="js_block" class="codeblock" readonly>
+                    &lt;script src="https://code.notkal.com/not-util.js" crossorigin&gt;&lt/script&gt;
+                </textarea>
+                <iframe src="./embed/js.html" frameborder="0"></iframe>
+            </section>
 
-    <p>JS utilities:</p>
-    <textarea name="js_block" id="js_block" class="codeblock" readonly>&lt;script src="https://www.notkal.com/not-util/not-util.js" crossorigin&gt;&lt/script&gt;</textarea><br><br>
+        
+            <h2>CSS utilities:</h2>
+            <section class="item" id="not_util_css">
+                <p class="secondary_text">(No !important so needs to go after other CSS for it to take priority)</p>
+                <textarea name="css_block" id="css_block" class="codeblock" readonly>
+                    &lt;link rel="stylesheet" href="https://code.notkal.com/not-util.css" crossorigin&gt;
+                </textarea>
+                <iframe src="./embed/css.html" frameborder="0"></iframe>
+            </section>
 
-    <p>CSS utilities:</p>
-    <p class="secondary_text">(No !important so needs to go after other CSS for it to take priority)</p>
-    <textarea name="css_block" id="css_block" class="codeblock" readonly>&lt;link rel="stylesheet" href="https://www.notkal.com/not-util/not-util.css" crossorigin&gt;</textarea><br><br><br><br>
+            <div id="copied">Copied!</div>
+        </main>
 
-    <div id="copied">Copied!</div>
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <!-- Navigation -->
+            <nav>
+                <p><b>List</b></p>
+                <p><a href="#not_util_js">not-util.js</a></p>
+                <p><a href="#not_util_css">not-util.css</a></p>
+            </nav>
 
+            <!-- Footer -->
+            <footer>
+                <p><b>Image Attribution</b></p>
+                <p><a href="https://www.flaticon.com/free-icon/copy_126498">Clipboard Icon</a>: <a href="https://www.flaticon.com/free-icons/paper" title="paper icons">Paper icons created by Gregor Cresnar - Flaticon</a></p>
+            </footer>
+        </div>
+    </div>
 
     <!-- JS -->
     <script src="not-util.js"></script>
@@ -65,16 +76,16 @@
         const js =  dom('js_block');
         const css = dom('css_block');
         const copied = dom('copied');
-        js.addEventListener('click', event => { copy(event); });
-        css.addEventListener('click', event => { copy(event); });
+        js.addEventListener('click', copy);
+        css.addEventListener('click', copy);
         function copy(event) {
             let element = event.srcElement
             element.focus();
             element.select();
             document.execCommand('copy');
-            copied.style.opacity = '1';
+            copied.classList.add('popin');
             setTimeout(() => {
-                copied.style.opacity = '0';
+                copied.classList.remove('popin');
             }, 3000);
         }
     </script>
