@@ -36,6 +36,8 @@ p {
     width: max-content;
 
     background-color: rgba(24, 24, 24, 0.8);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     padding: 9px 24px;
     border-radius: 20px;
     border: 1px solid var(--border-color);
@@ -119,7 +121,25 @@ section {
     height: 48px;
     resize: none;
     /* overflow-y: hidden; */
+
+    position: relative;
 }
+section { position: relative; }
+section::after {
+    content: "";
+    background-image: url(./copy.png);
+    background-size: contain;
+    height: 24px; width: 24px;
+    box-sizing: border-box;
+    pointer-events: none;
+
+    position: absolute;
+    top: 11px;
+    right: 13px;
+    opacity: 0;
+    transition: opacity 0.1s ease;
+}
+section:hover::after { opacity: 1; transition-duration: 0.15s; }
 #copied {
     position: absolute;
     top: 24px;
