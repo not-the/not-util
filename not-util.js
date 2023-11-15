@@ -5,11 +5,6 @@
  * @returns Returns a reference to the first object with the specified value of the ID attribute.
  */
 function dom(id) {return document.getElementById(id);}
-/** Shorthand for document.getElementById()
- * @param {string} id ID of the target element
- * @returns Returns a reference to the first object with the specified value of the ID attribute.
- */
-var id = dom;
 /** Shorthand for document.querySelector()
  * @param {string} sel DOM selector
  * @returns Returns the first element that is a descendant of node that matches selectors.
@@ -28,6 +23,27 @@ function $all(sel) {return document.querySelectorAll(sel);}
  */
 function style(element, classname, state) {
     state ? element.classList.add(classname) : element.classList.remove(classname);
+}
+/** Removes any classes on an element that start with a string
+ * From: https://stackoverflow.com/a/28608829
+ * @param {Node} element 
+ * @param {string} prefix 
+ * @returns {Node} The defined DOM element
+ */
+function removeClassByPrefix(element, prefix) {
+    var regx = new RegExp('\\b' + prefix + '.*?\\b', 'g');
+    element.className = element.className.replace(regx, '');
+    return element;
+}
+/** Takes in a string and returns a DOM element
+ * From: https://stackoverflow.com/a/494348
+ * @param {string} htmlString Raw HTML
+ * @returns {Node}
+ */
+function createElementFromHTML(htmlString) {
+    let div = document.createElement('div');
+    div.innerHTML = htmlString.trim();
+    return div.firstChild;
 }
 //#endregion
 
